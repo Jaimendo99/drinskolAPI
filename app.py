@@ -4,6 +4,7 @@ from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
 from dotenv import load_dotenv
+from config import sql_conn_str, jwt_secret_key
 
 
 from db import db
@@ -29,7 +30,7 @@ def create_app():
     app.config["OPENAPI_URL_PREFIX"] = "/"
     app.config["OPENAPI_SWAGGER_UI_PATH"] = "/swagger"
     app.config["OPENAPI_SWAGGER_UI_URL"] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
-    app.config["SQLALCHEMY_DATABASE_URI"] = "mssql+pyodbc://SA:12093498jm!D@192.168.100.101/DrinSkolv1?driver=ODBC+Driver+18+for+SQL+Server&TrustServerCertificate=yes"
+    app.config["SQLALCHEMY_DATABASE_URI"] = sql_conn_str
     
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -38,7 +39,7 @@ def create_app():
     migrate = Migrate(app, db)
 
 
-    app.config["JWT_SECRET_KEY"] = "333707479848303380720704945157265749272"
+    app.config["JWT_SECRET_KEY"] = jwt_secret_key  
 
     jwt = JWTManager(app)
 
@@ -73,5 +74,5 @@ def create_app():
 
 if __name__ == "__main__":
     app = create_app()
-    app.run(debug=True)
+    app.run(debug=False)
 
