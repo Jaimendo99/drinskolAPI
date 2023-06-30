@@ -106,3 +106,11 @@ class TagDrinkSchema(Schema):
 
     drink = fields.Nested('BaseDrinkSchema')
     tag = fields.Nested('BaseTagSchema')
+
+
+class UploadImageSchema(Schema):
+    image = fields.Str(required=True)
+    class_name = fields.Str(required=True)
+    class_id = fields.Int(required=True)
+    image_extension = fields.Str(required=True)
+    

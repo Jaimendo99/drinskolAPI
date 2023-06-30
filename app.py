@@ -17,6 +17,7 @@ from resources.tag import tag_blp as TagBlueprint
 from resources.experience import experience_blp as ExperienceBlueprint
 from resources.recipe import recipe_blp as RecipeBlueprint
 from resources.tag_drink import tag_drink_blp as TagDrinkBlueprint
+from resources.fb_images import image_blp as ImageBlueprint
 
 
 def create_app():
@@ -66,6 +67,7 @@ def create_app():
     api.register_blueprint(ExperienceBlueprint)
     api.register_blueprint(RecipeBlueprint)
     api.register_blueprint(TagDrinkBlueprint)
+    api.register_blueprint(ImageBlueprint)
     
 
     return app

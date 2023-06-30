@@ -1,11 +1,12 @@
 flask
 flask-smorest
-flask-sqalchemy
+flask-sqlalchemy
 python-dotenv
-sqalchemy
+sqlalchemy
 pyodbc
 requests
 marshmallow
 flask_jwt_extended
 flask-migrate
 passlib
+pyrebase4
